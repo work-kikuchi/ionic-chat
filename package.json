@@ -26,6 +26,7 @@
     "@capacitor/keyboard": "4.1.1",
     "@capacitor/status-bar": "4.1.1",
     "@ionic/angular": "^7.0.0",
+    "@ionic/pwa-elements": "^3.1.1",
     "firebase": "^9.20.0",
     "ionicons": "^7.0.0",
     "rxjs": "~7.5.0",
