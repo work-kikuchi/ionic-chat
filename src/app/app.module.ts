@@ -10,7 +10,7 @@ import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { environment } from "../environments/environment";
 import { AngularFireAuthGuard } from "@angular/fire/compat/auth-guard";
-
+import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +19,8 @@ import { AngularFireAuthGuard } from "@angular/fire/compat/auth-guard";
     IonicModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   providers: [AngularFireAuthGuard, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
