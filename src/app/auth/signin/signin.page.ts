@@ -7,6 +7,7 @@ import { AuthService } from "../auth.service";
   styleUrls: ['./signin.page.scss'],
 })
 export class SigninPage implements OnInit {
+  loading = false
   login:{
     email:string,
     password:string
@@ -22,7 +23,8 @@ export class SigninPage implements OnInit {
   }
 
   async signIn():Promise<void>{
-    await this.auth.authSignIn(this.login)
+    this.loading = true
+    await this.auth.authSignIn(this.login).finally(()=>{this.loading = true})
   }
 
 }
