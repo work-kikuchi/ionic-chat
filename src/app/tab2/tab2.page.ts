@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from "../auth/auth.service";
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +8,12 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor(
+    private authService:AuthService
+  ) {}
+
+  async signOut(): Promise<void>{
+    await this.authService.authSignOut()
+  }
 
 }

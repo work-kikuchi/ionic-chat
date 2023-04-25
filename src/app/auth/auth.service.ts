@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
-import { NavController } from "@ionic/angular";
+import { NavController, AlertController } from "@ionic/angular";
+import { firebaseError } from "./firebase.error";
 
 @Injectable({
   providedIn: 'root'
@@ -8,17 +9,17 @@ import { NavController } from "@ionic/angular";
 export class AuthService {
 
   constructor(
-    public fireAuth: AngularFireAuth,
-    public navController: NavController
+    private fireAuth: AngularFireAuth,
+    private navController: NavController,
+    private alertController: AlertController
   ) { }
 
   authSignUp(login:{email:string, password:string}){
     return this.fireAuth.createUserWithEmailAndPassword(
       login.email, login.password
     ).then(() => this.navController.navigateForward('/'))
-      .catch(error =>{
-        console.log(error)
-        // throw error;
+      .catch(async error =>{
+        await this.alertError(error)
       })
   }
 
@@ -26,18 +27,29 @@ export class AuthService {
     return this.fireAuth.signInWithEmailAndPassword(
       login.email,login.password
     ).then(()=>this.navController.navigateForward('/'))
-      .catch(error =>{
-        console.log(error)
-        // throw error
+      .catch(async error =>{
+        await this.alertError(error)
       })
   }
 
   authSignOut(){
     return this.fireAuth.signOut()
       .then(()=>this.navController.navigateRoot('/auth/signin'))
-      .catch(error=>{
-        console.log(error)
-        // throw error;
+      .catch(async error=>{
+        await this.alertError(error)
       })
+  }
+
+  async alertError(e:any){
+    if(firebaseError.hasOwnProperty(e.code)){
+      // @ts-ignore
+      e = firebaseError[e.code]
+    }
+    const alert = await this.alertController.create({
+      header: e.code,
+      message: e.message,
+      buttons:['閉じる']
+    });
+    await alert.present()
   }
 }
