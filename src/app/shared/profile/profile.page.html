@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="modalDismiss()">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>プロフィール</ion-title>
+    <ion-buttons slot="end">
+      <ion-button
+        (click)="updateProfile()"
+        [disabled]="!f.form.valid || (!photo && !this.user.photoDataUrl)"
+      >登録</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="ion-text-center ion-padding">
+    <ion-avatar style="display: inline-block">
+      <img [src]="photo || user.photoDataUrl || '/assets/shapes.svg'">
+    </ion-avatar>
+  </div>
+  <div class="ion-text-center">
+    <ion-button fill="clear" size="small" (click)="takePicture()">
+      画像変更
+    </ion-button>
+    <form #f="ngForm">
+      <ion-list class="ion-padding">
+        <ion-item>
+          <ion-label position="floating">ユーザーID</ion-label>
+          <ion-input type="text" [value]="uid" disabled></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">表示名</ion-label>
+          <ion-input
+            type="text"
+            [(ngModel)]="user.displayName"
+            name="displayName"
+            required
+          ></ion-input>
+        </ion-item>
+      </ion-list>
+    </form>
+  </div>
+</ion-content>
