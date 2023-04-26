@@ -30,6 +30,7 @@
     "@ionic/pwa-elements": "^3.1.1",
     "firebase": "^9.20.0",
     "ionicons": "^7.0.0",
+    "prettier": "^2.8.8",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
