@@ -18,7 +18,7 @@ export class Tab1Page implements OnInit, ViewWillEnter{
   user:IUser;
   // @ts-ignore
   chat: Observable<IChat[]>;
-  
+
   @ViewChild(IonContent, {static:true})// @ts-ignore
   content: IonContent;
 
