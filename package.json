@@ -9,7 +9,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "prettier": "prettier --write --parser typescript \"./src/**/*.{js,ts}\" &&  prettier --parser angular \"./src/**/*.html\" && prettier --parser scss \"./src/**/*.scss\" "
   },
   "private": true,
   "dependencies": {
