@@ -14,6 +14,11 @@ export class AuthService {
     private alertController: AlertController
   ) { }
 
+  async getUserId():Promise<string>{
+    const user = await this.fireAuth.currentUser;
+    return user?.uid ? user.uid : ''
+  }
+
   authSignUp(login:{email:string, password:string}){
     return this.fireAuth.createUserWithEmailAndPassword(
       login.email, login.password
