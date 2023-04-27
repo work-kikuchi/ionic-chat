@@ -1,2 +1,4 @@
 '*.scss':
-  - prettier --writer --parser scss \"./src/**/*.scss\"'
+  - prettier --write --parser scss \"./src/**/*.scss\"'
+'*.js':
+  - prettier --write --parser js \"./src/**/*.scss\"'

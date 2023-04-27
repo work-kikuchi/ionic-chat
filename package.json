@@ -10,6 +10,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
+    "prepare": "husky install",
     "prettier": "prettier --write --parser typescript \"./src/**/*.{js,ts}\" &&  prettier --parser angular \"./src/**/*.html\" && prettier --parser scss \"./src/**/*.scss\" "
   },
   "private": true,
@@ -33,6 +34,7 @@
     "husky": "^8.0.3",
     "ionicons": "^7.0.0",
     "lint-staged": "^13.2.1",
+    "pre-commit": "^1.2.2",
     "prettier": "^2.8.8",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
