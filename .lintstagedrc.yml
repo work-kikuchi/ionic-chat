@@ -1,4 +1,7 @@
 '*.scss':
-  - prettier --write --parser scss \"./src/**/*.scss\"'
+  - prettier --write --parser scss
 '*.js':
-  - prettier --write --parser js \"./src/**/*.scss\"'
+  - prettier --write --parser js
+'*.ts':
+  - prettier --write --parser typescript
+  - eslint --quiet
