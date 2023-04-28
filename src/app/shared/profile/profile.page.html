@@ -28,12 +28,19 @@
     <form #f="ngForm">
       <ion-list class="ion-padding">
         <ion-item>
-          <ion-label position="floating">ユーザーID</ion-label>
-          <ion-input type="text" [value]="uid" disabled></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">表示名</ion-label>
           <ion-input
+            label="ユーザーID"
+            label-placement="floating"
+            type="text"
+            [value]="uid"
+            disabled
+          ></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-input
+            label="表示名"
+            label-placement="floating"
             type="text"
             [(ngModel)]="user.displayName"
             name="displayName"
