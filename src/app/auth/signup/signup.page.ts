@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from "../auth.service";
+import { Component, OnInit, inject } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -8,23 +8,23 @@ import { AuthService } from "../auth.service";
 })
 export class SignupPage implements OnInit {
   loading = false;
-  login:{
-    email:string,
-    password:string
+  login: {
+    email: string;
+    password: string;
   } = {
     email: '',
-    password: ''
-  }
-  constructor(
-    private auth: AuthService
-  ) { }
+    password: '',
+  };
+  private readonly auth = inject(AuthService);
 
-  ngOnInit() {
-  }
+  constructor() {}
 
-  async signUp(){
-    this.loading = true
-    await this.auth.authSignUp(this.login).finally(()=>{this.loading=false})
-  }
+  ngOnInit() {}
 
+  async signUp() {
+    this.loading = true;
+    await this.auth.authSignUp(this.login).finally(() => {
+      this.loading = false;
+    });
+  }
 }

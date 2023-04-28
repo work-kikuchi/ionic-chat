@@ -9,7 +9,9 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "prepare": "husky install",
+    "prettier": "prettier --write --parser typescript \"./src/**/*.{js,ts}\" &&  prettier --parser angular \"./src/**/*.html\" && prettier --parser scss \"./src/**/*.scss\" "
   },
   "private": true,
   "dependencies": {
@@ -29,7 +31,11 @@
     "@ionic/angular": "^7.0.0",
     "@ionic/pwa-elements": "^3.1.1",
     "firebase": "^9.20.0",
+    "husky": "^8.0.3",
     "ionicons": "^7.0.0",
+    "lint-staged": "^13.2.1",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.8.8",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -47,6 +53,7 @@
     "@angular/language-service": "^15.0.0",
     "@capacitor/cli": "4.7.3",
     "@ionic/angular-toolkit": "^9.0.0",
+    "@rdlabo/eslint-plugin-rules": "^0.1.1",
     "@types/jasmine": "~4.0.0",
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "5.3.0",

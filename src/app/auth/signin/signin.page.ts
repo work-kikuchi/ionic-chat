@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from "../auth.service";
+import { Component, OnInit, inject } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -7,24 +7,24 @@ import { AuthService } from "../auth.service";
   styleUrls: ['./signin.page.scss'],
 })
 export class SigninPage implements OnInit {
-  loading = false
-  login:{
-    email:string,
-    password:string
+  loading = false;
+  login: {
+    email: string;
+    password: string;
   } = {
     email: '',
-    password: ''
-  }
-  constructor(
-    private auth: AuthService
-  ) { }
+    password: '',
+  };
+  private readonly auth = inject(AuthService);
 
-  ngOnInit() {
-  }
+  constructor() {}
 
-  async signIn():Promise<void>{
-    this.loading = true
-    await this.auth.authSignIn(this.login).finally(()=>{this.loading = true})
-  }
+  ngOnInit() {}
 
+  async signIn(): Promise<void> {
+    this.loading = true;
+    await this.auth.authSignIn(this.login).finally(() => {
+      this.loading = true;
+    });
+  }
 }
