@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { ModalController, IonContent, ViewWillEnter } from '@ionic/angular';
 import { ProfilePage } from '../shared/profile/profile.page';
 import { AuthService } from '../auth/auth.service';
@@ -22,11 +22,11 @@ export class Tab1Page implements OnInit, ViewWillEnter {
   @ViewChild(IonContent, { static: true }) // @ts-ignore
   content: IonContent;
 
-  constructor(
-    private modalController: ModalController,
-    private auth: AuthService,
-    private fireStore: FirestoreService
-  ) {}
+  private readonly modalController = inject(ModalController);
+  private readonly auth = inject(AuthService);
+  private readonly fireStore = inject(FirestoreService);
+
+  constructor() {}
 
   async ngOnInit(): Promise<void> {
     const user = await this.fireStore.userInit(await this.auth.getUserId());
