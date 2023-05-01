@@ -1,0 +1,28 @@
+name: eslint test
+on: [push]
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Print Stack
+        run: ls -la
+      - name: use node.js(version18.12)
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.12'
+      - name: Npm install
+        run: npm install
+      - name: Run eslint
+        run:
+          npm run eslint
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: node.js(version18.12)
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.12'
+      - name: Run prettier check
+        run: npx prettier --check "src/**/*.ts"

@@ -6,11 +6,11 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AngularFireModule } from "@angular/fire/compat";
-import { AngularFireAuthModule } from "@angular/fire/compat/auth";
-import { environment } from "../environments/environment";
-import { AngularFireAuthGuard } from "@angular/fire/compat/auth-guard";
-import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { environment } from '../environments/environment';
+import { AngularFireAuthGuard } from '@angular/fire/compat/auth-guard';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,9 +20,12 @@ import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
   ],
-  providers: [AngularFireAuthGuard, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    AngularFireAuthGuard,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
