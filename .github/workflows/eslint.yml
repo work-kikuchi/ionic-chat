@@ -11,6 +11,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.12'
+      - name: Npm install
+        run: npm install
       - name: Run eslint
         run:
           npm run eslint --quiet
