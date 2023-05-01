@@ -6,11 +6,7 @@ import { ProfilePage } from './profile/profile.page';
 
 @NgModule({
   declarations: [ProfilePage],
-  entryComponents:[ProfilePage],
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule
-  ]
+  entryComponents: [ProfilePage],
+  imports: [CommonModule, FormsModule, IonicModule],
 })
-export class SharedModule { }
+export class SharedModule {}
