@@ -15,4 +15,4 @@ jobs:
         run: npm install
       - name: Run eslint
         run:
-          npm run eslint --quiet
+          npm run eslint

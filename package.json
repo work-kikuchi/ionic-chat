@@ -11,6 +11,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "prepare": "husky install",
+    "eslint": "eslint --quiet",
     "prettier": "prettier --write --parser typescript \"./src/**/*.{js,ts}\" &&  prettier --parser angular \"./src/**/*.html\" && prettier --parser scss \"./src/**/*.scss\" "
   },
   "private": true,
