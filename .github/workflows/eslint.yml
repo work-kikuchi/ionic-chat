@@ -6,12 +6,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Print Stack
-       run:
-        ls -la
+        run: ls -la
       - name: use node.js(version18.12)
         uses: actions/setup-node@v3
         with:
           node-version: '18.12'
       - name: Run eslint
-      - run:
+        run:
           npm run eslint --quiet
